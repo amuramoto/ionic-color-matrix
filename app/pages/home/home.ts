@@ -1,5 +1,6 @@
 import {Component, ViewChild, ElementRef} from '@angular/core';
 import {NavController} from 'ionic-angular';
+import { Camera } from 'ionic-native';
 
 @Component({
   templateUrl: 'build/pages/home/home.html'
@@ -13,6 +14,9 @@ export class HomePage {
 	private photoCtx: CanvasRenderingContext2D;
 	private image;
 	private showTable: Boolean;
+	private rows: Array<string>;
+	private columns: Array<string>;
+
 
   constructor(private navController: NavController) {
   	this.showTable = true;
@@ -47,5 +51,19 @@ export class HomePage {
 
   private getImageData() {
 
+  }
+
+  private showGallery() {
+  	Camera.getPicture({
+    	destinationType: Camera.DestinationType.FILE_URI,
+      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,      
+      encodingType: Camera.EncodingType.JPEG,      
+      correctOrientation: true
+    })
+  	.then((file) => {    	
+      this.drawImageToCanvas(file);
+    }, (err) => {
+      console.log(err);
+    });
   }
 }

@@ -12,13 +12,13 @@ export class HomePage {
 	private photoCanvas: any;
 	private photoCtx: CanvasRenderingContext2D;
 	private image;
+	private showTable: Boolean;
 
   constructor(private navController: NavController) {
-
+  	this.showTable = true;
   }
 
   ngAfterViewInit () {
-  	console.log('imageUri')
   	this.drawImageToCanvas('./img/default.jpg');
   }
 
@@ -26,22 +26,26 @@ export class HomePage {
 
   	this.photoCanvas = this.photo.nativeElement;
   	this.photoCtx = this.photoCanvas.getContext("2d");    		
-  	const image = new Image();
+  	this.image = new Image();
 
-  	image.onload = () => {
+  	this.image.onload = () => {
  
-  		let canvasWidth = window.innerWidth - 25;
-  		let canvasHeight = (canvasWidth / image.width) * image.height - 25 ; //match canvas aspect ratio to original image
+  		let canvasWidth = window.innerWidth - 40;
+  		let canvasHeight = (canvasWidth / this.image.width) * this.image.height - 40 ; //match canvas aspect ratio to original image
   	
   		this.photoCtx.canvas.width = canvasWidth;
   		this.photoCtx.canvas.height = canvasHeight;
   		
-  		this.photoCtx.drawImage(image, 0, 0, image.width - 25, image.height - 25,
+  		this.photoCtx.drawImage(this.image, 0, 0, this.image.width - 40, this.image.height - 40,
   												 0, 0, canvasWidth, canvasHeight);
   	
   	}
 
-  	image.src=imageUri;
-  	console.log('image.src')
+  	this.image.src=imageUri;
+
+  }
+
+  private getImageData() {
+
   }
 }

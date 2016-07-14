@@ -1,7 +1,6 @@
 import {Component, ViewChild, ElementRef} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import { Camera } from 'ionic-native';
-import { cloneDeep } from 'lodash';
 
 @Component({
   templateUrl: 'build/pages/home/home.html'

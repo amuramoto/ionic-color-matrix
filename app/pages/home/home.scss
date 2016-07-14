@@ -14,23 +14,34 @@ ion-navbar {
 	margin: 0px 10px;
 	padding: 10px;
 
+	table {
+		width: 95%;
+	}
+
 	table, td, th	{		
 		margin: 0 auto;
 	}
 
 	td, th {
-		width: 15%;
-		padding: 5px
+		width: 15%;		
 	}
 
 	td {
 		border: #000000 1px solid;
+		padding: 5px
 	}
 
 	th {
-		border: none;
-		padding: 5px
+
+		padding: 5px 0px;
+	
+		button {
+			padding: 5px;
+			width: 100%;
+			height: auto;	
+		}
 	}
+
 }
 .canvas-container {
 		border: #292929 1px solid;

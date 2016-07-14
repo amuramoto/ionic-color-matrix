@@ -8,22 +8,32 @@
 </ion-header>
 
 <ion-content>
+{{test2}}
   <div class="center-vertical">
   	<div class="canvas-container">
   		<canvas #photo class=''></canvas>
   	</div>
   	<div class="table-container" *ngIf="showTable">
+	    	<ion-range [(ngModel)]="red" (ionChange)="updateColor('red')" step="150" min="1" max="100"></ion-range>
+	    	<ion-range [(ngModel)]="green" pin="true" min="1" max="100"></ion-range>
+	    	<ion-range [(ngModel)]="blue" (ionChange)="updateColor('blue')" pin="true" min="1" max="100"></ion-range>
+	    	<ion-range [(ngModel)]="alpha" (ionChange)="updateColor('alpha')" pin="true" min="1" max="100"></ion-range>
+	    	<ion-range [(ngModel)]="brightness" (ionChange)="updateColor('alpha')" pin="true" min="0" max="100"></ion-range>
+			<!-- <table>
+	    	<tr *ngFor="let row of rows"><td></td></tr>
+	    </table>
+
 	    <table>
 	    	<tr>
 	    		<th></th>
-	    		<th>cr</th>
+	    		<th><button>cr</button></th>
 	    		<th>cb</th>
 	    		<th>cg</th>
 	    		<th>ca</th>
 	    		<th>i</th>
 	    	</tr>
 	    	<tr>
-	    		<th text-right>Red</th>
+	    		<th>Red</th>
 	    		<td></td>
 	    		<td></td>
 	    		<td></td>
@@ -32,7 +42,7 @@
 	    	</tr>
 
 	    	<tr>
-	    		<th text-right>Green</th>
+	    		<th>Green</th>
 	    		<td></td>
 	    		<td></td>
 	    		<td></td>
@@ -41,7 +51,7 @@
 	    	</tr>
 
 	    	<tr>
-	    		<th text-right>Blue</th>
+	    		<th>Blue</th>
 	    		<td></td>
 	    		<td></td>
 	    		<td></td>
@@ -50,18 +60,14 @@
 	    	</tr>
 
 	    	<tr>
-	    		<th text-right>Alpha</th>
+	    		<th>Alpha</th>
 	    		<td></td>
 	    		<td></td>
 	    		<td></td>
 	    		<td></td>
 	    		<td></td>
 	    	</tr>
-	    </table>
+	    </table> -->
 	  </div>
-    <div text-center>    
-      <ion-icon name="images"></ion-icon>
-      <p>Choose an Image</p>
-    </div>    
   </div>
 </ion-content>

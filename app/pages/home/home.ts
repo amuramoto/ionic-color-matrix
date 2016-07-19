@@ -65,7 +65,7 @@ private redraw (callback) {
 private calcPixels (d) {
   
   
-  // this.photoCtx.putImageData(imageDataCopy, 0, 0);  
+  this.photoCtx.putImageData(imageDataCopy, 0, 0);  
 }
 
 	private updateColor() {	

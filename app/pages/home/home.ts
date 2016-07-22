@@ -42,34 +42,34 @@ private test2: any;
 
   }
 	
-
-private redraw (callback) {  
+private redraw () {  
   let imageDataCopy = this.ctxCopy.getImageData(0,0,this.canvasWidth, this.canvasHeight);
   let d = imageDataCopy.data;
-  for (var i = 0; i < d.length; i += 8) {
-      
     
-        d[i] *= this.red/100 + this.brightness/100
+  for (var i = 0; i < d.length; i += 4) {
+   
+    d[i] *= this.red/100 + this.brightness/100
+
+    d[i+1] *= this.green/100 + this.brightness/100;
+
+    d[i+2] *= this.blue/100 + this.brightness/100;
+
+    d[i+3] *= this.alpha/100 + this.brightness/100;
+  
+  }
     
-        d[i+1] *= this.green/100 + this.brightness/100;
-    
-        d[i+2] *= this.blue/100 + this.brightness/100;
-    
-        d[i+3] *= this.alpha/100 + this.brightness/100;
-    
-    }
-  callback.call(this);
+  this.photoCtx.putImageData(imageDataCopy, 0, 0);
   
 }
 
-private calcPixels (d) {
+private calcPixels (imageDataCopy) {
   
   
   this.photoCtx.putImageData(imageDataCopy, 0, 0);  
 }
 
 	private updateColor() {	
-    this.redraw(this.calcPixels);
+    this.redraw();
 
 
     

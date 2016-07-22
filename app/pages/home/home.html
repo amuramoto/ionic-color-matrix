@@ -14,11 +14,11 @@
   		<canvas #photo class=''></canvas>
   	</div>
   	<div class="table-container" *ngIf="showTable">
-	    	<ion-range [(ngModel)]="red" (ionChange)="updateColor('red')" step="150" min="1" max="100"></ion-range>
-	    	<ion-range [(ngModel)]="green" pin="true" min="1" max="100"></ion-range>
-	    	<ion-range [(ngModel)]="blue" (ionChange)="updateColor('blue')" pin="true" min="1" max="100"></ion-range>
-	    	<ion-range [(ngModel)]="alpha" (ionChange)="updateColor('alpha')" pin="true" min="1" max="100"></ion-range>
-	    	<ion-range [(ngModel)]="brightness" (ionChange)="updateColor('alpha')" pin="true" min="0" max="100"></ion-range>
+	    	<ion-range [(ngModel)]="red" (ionChange)="redraw('red')" step="5" min="1" max="100"></ion-range>
+	    	<ion-range [(ngModel)]="green" (ionChange)="redraw('green')" step="5"  min="1" max="100"></ion-range>
+	    	<ion-range [(ngModel)]="blue" (ionChange)="redraw('blue')" step="5" min="1" max="100"></ion-range>
+	    	<ion-range [(ngModel)]="alpha" (ionChange)="redraw('alpha')" step="5" min="1" max="100"></ion-range>
+	    	<!-- <ion-range [(ngModel)]="brightness" (ionChange)="updateColor('brightness')" pin="true" min="1" max="100"></ion-range> -->
 			<!-- <table>
 	    	<tr *ngFor="let row of rows"><td></td></tr>
 	    </table>
